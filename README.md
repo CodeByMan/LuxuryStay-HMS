@@ -46,13 +46,13 @@ This project is built as a practical **MERN stack portfolio project** using **Re
 
 ## 🖼️ Screenshots
 
-| Home Page | Dashboard |
+| Home Page | Loging |
 |----------|-----------|
-| ![Home Page](docs/screenshots/homepage.png) | ![Dashboard](docs/screenshots/dashboard.png) |
+| ![Home Page](docs/screenshots/homepage.png) | ![Login](docs/screenshots/login.png) |
 
-| Login | Register |
+| Dashboard | Register |
 |-------|----------|
-| ![Login](docs/screenshots/login.png) | ![Register](docs/screenshots/register.png) |
+| ![Dashboard](docs/screenshots/dashboard.png) | ![Register](docs/screenshots/register.png) |
 
 ---
 
