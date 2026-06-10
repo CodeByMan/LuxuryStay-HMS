@@ -301,7 +301,7 @@ The backend is organized into route modules under `/api`.
 ## 🧑‍💻 Author
 
 **Muhammad Ali Nawaz**  
-MERN Stack Developer and Data Engineer
+MERN Stack Developer
 
 ---
 
