@@ -1,89 +1,69 @@
-# LuxuryStay Hotel Management System
+<div align="center">
 
-A full-stack **MERN hotel management system** for managing hotel rooms, reservations, guests, staff, billing, housekeeping, maintenance requests, guest feedback, and admin dashboard operations.
+# 🏨 LuxuryStay — Hotel Management System MERN
 
-This project is built as a practical full-stack portfolio project using **React + Vite** on the frontend and **Node.js + Express + MongoDB** on the backend.
+A modern full-stack hotel management platform built with the **MERN stack**. LuxuryStay helps manage hotel rooms, reservations, guests, staff, billing, housekeeping, maintenance requests, feedback, and role-based hotel operations from a clean dashboard experience.
 
----
+![MERN](https://img.shields.io/badge/Stack-MERN-16a34a?style=for-the-badge)
+![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61dafb?style=for-the-badge)
+![Node.js](https://img.shields.io/badge/Backend-Node.js%20%2B%20Express-111827?style=for-the-badge)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-10b981?style=for-the-badge)
+![Tailwind](https://img.shields.io/badge/UI-Tailwind%20CSS-38bdf8?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-f97316?style=for-the-badge)
 
-## Project Type
-
-**MERN Stack Full-Stack Application**
-
-MERN stack used:
-
-- **MongoDB** — database
-- **Express.js** — backend framework
-- **React.js** — frontend library
-- **Node.js** — backend runtime
-
-> Note: This is a React + Vite project, not a Next.js project.
+</div>
 
 ---
 
-## Features
+## 📌 Project Overview
 
-### Public Website
+**LuxuryStay** is a hotel management system designed for hotels and resorts that need a centralized platform to manage daily operations. The application includes a public hotel website, guest authentication, room booking flow, admin/staff dashboards, reservation handling, billing, housekeeping, maintenance, guest service requests, and feedback management.
 
-- Responsive landing/home page
-- Rooms listing
-- Room details
-- Services page
-- About page
-- Contact page
-- Light and dark mode support
-- Modern glassmorphism login/register UI
-- Responsive hotel-themed UI
-
-### Authentication
-
-- Guest registration
-- User login
-- JWT-based authentication
-- Password hashing with bcrypt
-- Protected frontend routes
-- Role-based backend middleware
-
-### Roles
-
-The project supports multiple user roles, including:
-
-- Admin
-- Manager
-- Receptionist
-- Housekeeping
-- Maintenance
-- Guest
-
-### Hotel Management Modules
-
-- Room management
-- Reservation management
-- Check-in / check-out flow
-- Billing and invoice handling
-- Guest management
-- Housekeeping tasks
-- Maintenance requests
-- Guest service requests
-- Feedback management
-- Dashboard statistics
-
-### File / Media Support
-
-- Cloudinary configuration
-- Multer upload handling
-- PDF invoice generation with PDFKit
+This project is built as a practical **MERN stack portfolio project** using **React + Vite** on the frontend and **Node.js + Express + MongoDB** on the backend.
 
 ---
 
-## Tech Stack
+## ✨ Premium Features
+
+- 🔐 **JWT authentication** with protected routes
+- 👤 **Guest registration and login**
+- 🧑‍💼 **Role-based access control** for admin, manager, receptionist, housekeeping, maintenance, and guest users
+- 🛏️ **Room management** with room details and availability handling
+- 📅 **Reservation management** for booking and guest stays
+- 🧾 **Billing and invoice management**
+- 🧹 **Housekeeping task management**
+- 🛠️ **Maintenance request handling**
+- 🛎️ **Guest service request system**
+- ⭐ **Guest feedback management**
+- 📊 **Admin dashboard with hotel statistics**
+- 🌙 **Light and dark mode support**
+- 🎨 **Responsive UI with Tailwind CSS**
+- ✨ **GSAP-powered homepage animations**
+- 🖼️ **Cloudinary image upload support**
+- 📄 **PDF generation using PDFKit**
+
+---
+
+## 🖼️ Screenshots
+
+| Home Page | Dashboard |
+|----------|-----------|
+| ![Home Page](docs/screenshots/homepage.png) | ![Dashboard](docs/screenshots/dashboard.png) |
+
+| Login | Register |
+|-------|----------|
+| ![Login](docs/screenshots/login.png) | ![Register](docs/screenshots/register.png) |
+
+---
+
+## 🧰 Tech Stack
 
 ### Frontend
 
 - React 19
-- Vite 7
-- Tailwind CSS 3
-- React Router DOM 7
+- Vite
+- Tailwind CSS
+- React Router DOM
 - Axios
 - GSAP
 - Lucide React
@@ -93,11 +73,11 @@ The project supports multiple user roles, including:
 ### Backend
 
 - Node.js
-- Express.js 5
+- Express.js
 - MongoDB
-- Mongoose 9
-- JSON Web Token
-- bcryptjs
+- Mongoose
+- JWT authentication
+- BcryptJS
 - Multer
 - Cloudinary
 - PDFKit
@@ -106,16 +86,17 @@ The project supports multiple user roles, including:
 
 ---
 
-## Folder Structure
+## 📁 Folder Structure
 
 ```bash
-HotelManagement-main/
+LuxuryStay-Hotel-Management-System/
 ├── Backend/
 │   ├── config/
 │   ├── Controllers/
 │   ├── Middlewares/
 │   ├── Models/
 │   ├── Routes/
+│   ├── .env.example
 │   ├── package.json
 │   └── server.js
 │
@@ -127,53 +108,82 @@ HotelManagement-main/
 │   │   ├── context/
 │   │   ├── Pages/
 │   │   ├── api.js
+│   │   ├── App.jsx
 │   │   └── main.jsx
+│   ├── .env.example
 │   ├── package.json
 │   └── vite.config.js
 │
+├── docs/
+│   └── screenshots/
+│       ├── homepage.png
+│       ├── dashboard.png
+│       ├── login.png
+│       └── register.png
+│
 ├── .gitignore
-├── README.md
-└── LICENSE
+├── LICENSE
+└── README.md
 ```
 
 ---
 
-## Prerequisites
+## ⚙️ Environment Variables
 
-Install these before running the project:
+### Backend Environment
 
-- Node.js
-- npm
-- MongoDB Atlas account or local MongoDB
-- Cloudinary account for image upload features
+Create a `.env` file inside the `Backend` folder using the included example file:
 
----
+```bash
+cd Backend
+cp .env.example .env
+```
 
-## Environment Variables
+Then update the values:
 
-### Backend
+| Variable | Description |
+| --- | --- |
+| `PORT` | Backend server port, usually `5000` |
+| `MONGODB_URL` | MongoDB local or Atlas connection string |
+| `JWT_SECRET` | Secret key for signing JWT tokens |
+| `CLOUDINARY_CLOUD_NAME` | Cloudinary cloud name |
+| `CLOUDINARY_API_KEY` | Cloudinary API key |
+| `CLOUDINARY_API_SECRET` | Cloudinary API secret |
 
-Create a `.env` file inside the `Backend` folder:
+Example:
 
 ```env
-MONGODB_URL=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
 PORT=5000
+MONGODB_URL=mongodb+srv://username:password@cluster.mongodb.net/luxurystay
+JWT_SECRET=your_secure_jwt_secret
 
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
 
-### Frontend
+### Frontend Environment
 
 Create a `.env` file inside the `Frontend` folder:
+
+```bash
+cd Frontend
+cp .env.example .env
+```
+
+Then update the value:
+
+| Variable | Description |
+| --- | --- |
+| `VITE_API_BASE_URL` | Backend API base URL |
+
+Example:
 
 ```env
 VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
-For deployed backend, replace it with your deployed API URL:
+For deployment:
 
 ```env
 VITE_API_BASE_URL=https://your-backend-url.com/api
@@ -181,13 +191,13 @@ VITE_API_BASE_URL=https://your-backend-url.com/api
 
 ---
 
-## How to Run Locally
+## 🚀 Getting Started
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/hotel-management-system.git
-cd hotel-management-system
+git clone https://github.com/CodeByMan/LuxuryStay-HMS.git
+cd luxurystay-hotel-management-system
 ```
 
 ### 2. Install backend dependencies
@@ -197,13 +207,21 @@ cd Backend
 npm install
 ```
 
-### 3. Run backend
+### 3. Configure backend environment
+
+```bash
+cp .env.example .env
+```
+
+Update the `.env` file with your MongoDB, JWT, and Cloudinary credentials.
+
+### 4. Start the backend server
 
 ```bash
 npm run dev
 ```
 
-Backend will run on:
+Backend runs by default at:
 
 ```bash
 http://localhost:5000
@@ -215,7 +233,7 @@ Health check route:
 http://localhost:5000/run
 ```
 
-### 4. Install frontend dependencies
+### 5. Install frontend dependencies
 
 Open a new terminal:
 
@@ -224,13 +242,13 @@ cd Frontend
 npm install
 ```
 
-### 5. Run frontend
+### 6. Start the frontend development server
 
 ```bash
 npm run dev
 ```
 
-Frontend will run on:
+Frontend runs by default at:
 
 ```bash
 http://localhost:5173
@@ -238,89 +256,61 @@ http://localhost:5173
 
 ---
 
-## Production Build
+## 📜 Available Scripts
 
-### Frontend build
+### Backend
 
-```bash
-cd Frontend
-npm run build
-```
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start backend with Nodemon |
+| `npm start` | Start backend with Node |
 
-### Preview frontend build
+### Frontend
 
-```bash
-npm run preview
-```
-
-### Backend start
-
-```bash
-cd Backend
-npm start
-```
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start Vite development server |
+| `npm run build` | Create production build |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint |
 
 ---
 
-## Important GitHub Upload Notes
+## 🔗 API Modules
 
-Before pushing to GitHub:
+The backend is organized into route modules under `/api`.
 
-1. Delete `node_modules` from both frontend and backend.
-2. Do not upload real `.env` files.
-3. Add `.env.example` files instead.
-4. Keep `package-lock.json` files if available.
-5. Add screenshots to the README if possible.
-6. Add demo credentials only if they are safe demo accounts.
+| Module | Base Route |
+| --- | --- |
+| Authentication | `/api/auth` |
+| Rooms | `/api/room` |
+| Reservations | `/api/reservation` |
+| Guests | `/api/guest` |
+| Staff | `/api/staff` |
+| Billing | `/api/billing` |
+| Housekeeping | `/api/housekeeping` |
+| Maintenance | `/api/maintenance` |
+| Service Requests | `/api/service` |
+| Feedback | `/api/feedback` |
+| Dashboard | `/api/dashboard` |
 
-Recommended cleanup commands:
-
-```bash
-rm -rf Backend/node_modules Frontend/node_modules
-rm -f Backend/.env Frontend/.env
-```
-
-On Windows CMD:
-
-```cmd
-rmdir /s /q Backend\node_modules
-rmdir /s /q Frontend\node_modules
-del Backend\.env
-del Frontend\.env
-```
+> Route names can vary depending on your final backend route files. Update this table if your route names are different.
 
 ---
 
-## Suggested Demo Credentials
+## 🧑‍💻 Author
 
-Add your own safe demo accounts here after creating them in your database.
-
-```txt
-Admin:
-Email: admin@example.com
-Password: Admin@123
-
-Guest:
-Email: guest@example.com
-Password: Guest@123
-```
-
-> Do not publish real personal or production credentials.
+**Muhammad Ali Nawaz**  
+MERN Stack Developer and Data Engineer
 
 ---
 
-## Portfolio Description
+## 📄 License
 
-**LuxuryStay Hotel Management System** is a full-stack MERN application built to manage hotel operations including rooms, reservations, billing, housekeeping, maintenance, guest services, feedback, and role-based dashboards. The project demonstrates practical full-stack development using React, Node.js, Express, MongoDB, JWT authentication, and responsive UI design.
-
----
-
-## Resume Bullet
-
-Built a MERN stack hotel management system with JWT authentication, role-based access control, room management, reservation workflows, billing, housekeeping, maintenance requests, guest feedback, and admin/staff dashboards using React, Node.js, Express, and MongoDB.
+This project is licensed under the [MIT license](LICENSE).
 
 ---
 
-## License
-
-This project is licensed under the MIT License.
+<p align="center">
+  <b>⭐ If you like this project, consider starring the repository!</b>
+</p>
