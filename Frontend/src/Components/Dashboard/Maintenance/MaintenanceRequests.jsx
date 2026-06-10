@@ -70,12 +70,15 @@ const MaintenanceRequests = () => {
         (s) => String(s.role || "").toLowerCase() === "maintenance"
       );
       setMaintenanceStaff(staff);
-    } catch { }
+    } catch {
+      return;
+    }
   };
 
   useEffect(() => {
     fetchRequests();
     fetchMaintenanceStaff();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [role]);
 
   const filteredRequests = useMemo(() => {

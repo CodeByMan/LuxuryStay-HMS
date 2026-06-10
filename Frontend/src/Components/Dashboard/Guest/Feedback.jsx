@@ -130,6 +130,7 @@ const Feedback = () => {
       fetchFeedback();
       fetchCurrentStay();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGuest]);
 
   const filteredFeedback = useMemo(() => {

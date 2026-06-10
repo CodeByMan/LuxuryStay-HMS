@@ -80,7 +80,6 @@ const CheckOut = () => {
   useEffect(() => {
     if (!canCheckOutRole(role)) return;
     fetchEligibleReservations();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [role]);
 
   const eligibleForCheckOut = useMemo(() => {

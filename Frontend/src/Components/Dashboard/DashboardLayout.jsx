@@ -3,7 +3,6 @@ import { Outlet, useLocation } from "react-router-dom";
 import DashboardNavbar from "./DashboardNavbar";
 import DashboardSidebar from "./DashboardSideBar";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

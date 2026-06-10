@@ -33,6 +33,7 @@ const GuestRequestServicesPage = () => {
     if (!user?._id) { navigate("/login"); return; }
     fetchStay();
     fetchRequests();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchStay = async () => {

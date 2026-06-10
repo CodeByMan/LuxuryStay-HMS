@@ -71,7 +71,7 @@ const GuestCreateReservationPage = () => {
         });
         const { data } = await api.get(`/reservation/preview?${query.toString()}`);
         setPreview(data);
-      } catch (err) {
+      } catch {
         setPreview(null);
       } finally {
         setPreviewLoading(false);

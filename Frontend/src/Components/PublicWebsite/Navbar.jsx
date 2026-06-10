@@ -1,8 +1,23 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Logo from "../../assets/logo.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
+
+const getStoredAuth = () => {
+  const storedUser = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
+
+  if (storedUser && token) {
+    try {
+      return { user: JSON.parse(storedUser), isAuthenticated: true };
+    } catch {
+      return { user: null, isAuthenticated: false };
+    }
+  }
+
+  return { user: null, isAuthenticated: false };
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,26 +28,13 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const [user, setUser] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [auth, setAuth] = useState(() => getStoredAuth());
+  const user = auth.user;
+  const isAuthenticated = auth.isAuthenticated;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
-
-    // Auth Check
-    const storedUser = localStorage.getItem("user");
-    const token = localStorage.getItem("token");
-    if (storedUser && token) {
-      try {
-        setUser(JSON.parse(storedUser));
-        setIsAuthenticated(true);
-      } catch (e) {
-        setIsAuthenticated(false);
-      }
-    } else {
-      setIsAuthenticated(false);
-    }
 
     // Outside click logic
     const handleOutside = (e) => {
@@ -51,8 +53,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    setUser(null);
-    setIsAuthenticated(false);
+    setAuth({ user: null, isAuthenticated: false });
     navigate("/login");
   };
 

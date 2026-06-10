@@ -13,8 +13,6 @@ import { toast } from "react-toastify";
 
 const ReportsAnalytics = () => {
   const [selectedPeriod, setSelectedPeriod] = useState("This Month");
-  const [loading, setLoading] = useState(false);
-
   const [stats, setStats] = useState({
     totalGuests: 0,
     occupiedRooms: 0,
@@ -27,16 +25,7 @@ const ReportsAnalytics = () => {
   const [roomTypeStats, setRoomTypeStats] = useState([]);
   const [recentActivities, setRecentActivities] = useState([]);
 
-  useEffect(() => {
-    fetchDashboardStats();
-    fetchOccupancyData();
-    fetchRevenueData();
-    fetchRoomTypeStats();
-    fetchRecentActivities();
-  }, [selectedPeriod]);
-
   const fetchDashboardStats = () => {
-    setLoading(true);
     setTimeout(() => {
       setStats({
         totalGuests: 1250,
@@ -44,7 +33,6 @@ const ReportsAnalytics = () => {
         totalReservations: 320,
         totalRevenue: 45000,
       });
-      setLoading(false);
     }, 500);
   };
 
@@ -95,6 +83,14 @@ const ReportsAnalytics = () => {
       ]);
     }, 500);
   };
+
+  useEffect(() => {
+    fetchDashboardStats();
+    fetchOccupancyData();
+    fetchRevenueData();
+    fetchRoomTypeStats();
+    fetchRecentActivities();
+  }, [selectedPeriod]);
 
   const handleExport = () => {
     toast.info("Export feature will be available soon");

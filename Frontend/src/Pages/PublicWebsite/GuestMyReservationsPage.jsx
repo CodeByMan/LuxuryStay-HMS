@@ -152,17 +152,19 @@ const EditModal = ({ reservation, onClose, onSaved, dark }) => {
   );
 };
 
+
+const DetailRow = ({ label, val, muted, text }) => (
+  <div className="flex justify-between py-2 border-b last:border-0 border-gray-100 dark:border-gray-800">
+    <span className={`text-sm ${muted}`}>{label}</span>
+    <span className={`text-sm font-medium ${text}`}>{val}</span>
+  </div>
+);
+
 /* ─ Detail Modal ─ */
 const DetailModal = ({ res, onClose, dark }) => {
   const card = dark ? "bg-[#222] border-gray-800" : "bg-[#faf8f6] border-gray-100";
   const muted = dark ? "text-gray-400" : "text-gray-500";
   const text = dark ? "text-white" : "text-gray-900";
-  const Row = ({ label, val }) => (
-    <div className="flex justify-between py-2 border-b last:border-0 border-gray-100 dark:border-gray-800">
-      <span className={`text-sm ${muted}`}>{label}</span>
-      <span className={`text-sm font-medium ${text}`}>{val}</span>
-    </div>
-  );
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
@@ -180,14 +182,14 @@ const DetailModal = ({ res, onClose, dark }) => {
           </div>
         </div>
         <div className={`rounded-xl border p-4 ${card} mb-4`}>
-          <Row label="Room Type" val={res.roomType} />
-          <Row label="Room No." val={res.roomNumber} />
-          <Row label="Check-In" val={fmtDate(res.checkInDate)} />
-          <Row label="Check-Out" val={fmtDate(res.checkOutDate)} />
-          <Row label="Nights" val={res.nights} />
-          <Row label="Guests" val={`${res.adults} Adults, ${res.children} Child`} />
-          <Row label="Amount" val={fmtPKR(res.amount)} />
-          <Row label="Payment" val={res.paymentMethod} />
+          <DetailRow label="Room Type" val={res.roomType} muted={muted} text={text} />
+          <DetailRow label="Room No." val={res.roomNumber} muted={muted} text={text} />
+          <DetailRow label="Check-In" val={fmtDate(res.checkInDate)} muted={muted} text={text} />
+          <DetailRow label="Check-Out" val={fmtDate(res.checkOutDate)} muted={muted} text={text} />
+          <DetailRow label="Nights" val={res.nights} muted={muted} text={text} />
+          <DetailRow label="Guests" val={`${res.adults} Adults, ${res.children} Child`} muted={muted} text={text} />
+          <DetailRow label="Amount" val={fmtPKR(res.amount)} muted={muted} text={text} />
+          <DetailRow label="Payment" val={res.paymentMethod} muted={muted} text={text} />
         </div>
         {res.specialRequests && (
           <p className={`text-xs ${muted}`}><span className="font-semibold">Requests:</span> {res.specialRequests}</p>
@@ -217,6 +219,7 @@ const GuestMyReservationsPage = () => {
   useEffect(() => {
     if (!user?._id) { navigate("/login"); return; }
     fetchReservations();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchReservations = async () => {
@@ -291,10 +294,10 @@ const GuestMyReservationsPage = () => {
               [CheckCircle2, "Active", stats.active, "text-emerald-500"],
               [BedDouble, "Checked-In", stats.checkedIn, "text-blue-500"],
               [XCircle, "Cancelled", stats.cancelled, "text-red-400"],
-            ].map(([Icon, label, val, cls]) => (
+            ].map(([StatIcon, label, val, cls]) => (
               <div key={label} className={`rounded-2xl border p-5 ${card}`}>
                 <div className="flex items-center gap-3 mb-2">
-                  <Icon size={18} className={cls} />
+                  {React.createElement(StatIcon, { size: 18, className: cls })}
                   <span className={`text-xs uppercase tracking-widest font-semibold ${muted}`}>{label}</span>
                 </div>
                 <p className={`text-3xl font-serif font-semibold ${text}`}>{val}</p>

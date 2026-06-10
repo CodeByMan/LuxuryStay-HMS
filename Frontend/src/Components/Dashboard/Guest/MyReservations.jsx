@@ -149,6 +149,7 @@ const MyReservations = () => {
     if (isGuest) {
       fetchReservations();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGuest]);
 
   const getStatusStyle = (status) => {

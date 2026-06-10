@@ -42,7 +42,6 @@ const PricingControl = () => {
 
   useEffect(() => {
     fetchRooms();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // ✅ Build pricing rows grouped by roomType

@@ -259,6 +259,7 @@ const Cleaning = () => {
 
   useEffect(() => {
     fetchCleaningTasks();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHousekeeping]);
 
   const filteredTasks = useMemo(() => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { sidebarPermissions, checkAccess, routePermissions } from "../../context/roleConfig";
@@ -53,38 +53,6 @@ const DashboardSidebar = ({ open, setOpen, collapsed, setCollapsed }) => {
     Guest: false,
     System: false,
   });
-  useEffect(() => {
-    const currentPath = location.pathname;
-    const menuSections = {
-      "User Management": "/dashboard/user-management",
-      "Room Management": "/dashboard/room-management",
-      Reservations: "/dashboard/reservations",
-      "Billing & Invoicing": "/dashboard/billing",
-      Housekeeping: "/dashboard/housekeeping",
-      Maintenance: "/dashboard/maintenance",
-      Guest: "/dashboard/guest",
-      System: "/dashboard/system",
-    };
-    const activeSection = Object.keys(menuSections).find(
-      (section) => currentPath.startsWith(menuSections[section])
-    );
-    setOpenMenus({
-      "User Management": false,
-      "Room Management": false,
-      Reservations: false,
-      "Billing & Invoicing": false,
-      Housekeeping: false,
-      Maintenance: false,
-      Guest: false,
-      System: false,
-    });
-
-    // Open the active section's menu (if any)
-    if (activeSection) {
-      setOpenMenus((prev) => ({ ...prev, [activeSection]: true }));
-    }
-  }, [location.pathname]);
-
   const menu = [
     {
       title: "Dashboard",

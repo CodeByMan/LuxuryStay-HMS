@@ -128,7 +128,7 @@ const RequestServices = () => {
       setStayLoading(true);
       const { data } = await api.get("/guest/current-stay");
       setCurrentStay(data?.stay || null);
-    } catch (err) {
+    } catch {
       setCurrentStay(null);
     } finally {
       setStayLoading(false);
@@ -154,6 +154,7 @@ const RequestServices = () => {
       fetchCurrentStay();
       fetchServiceRequests();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGuest]);
 
   const getStatusStyle = (status) => {

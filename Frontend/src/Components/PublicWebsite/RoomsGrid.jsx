@@ -51,6 +51,7 @@ const RoomsGrid = () => {
       }
     };
     fetch();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checkIn, checkOut]);
 
   /* ── Filter by type tab ── */

@@ -73,6 +73,7 @@ const CleaningReport = () => {
 
   useEffect(() => {
     fetchReport();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHousekeeping]);
 
   useEffect(() => {

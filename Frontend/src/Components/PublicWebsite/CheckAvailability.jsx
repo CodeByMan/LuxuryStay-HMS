@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { Calendar, Users, BedDouble, ArrowRight } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
+const defaultToday = new Date().toISOString().split("T")[0];
+const defaultTomorrow = new Date(new Date().getTime() + 86400000).toISOString().split("T")[0];
+
 const CheckAvailability = () => {
   const { dark } = useTheme();
   const navigate  = useNavigate();
 
-  const today    = new Date().toISOString().split("T")[0];
-  const tomorrow = new Date(Date.now() + 86400000).toISOString().split("T")[0];
-
-  const [checkIn,  setCheckIn]  = useState(today);
-  const [checkOut, setCheckOut] = useState(tomorrow);
+  const [checkIn,  setCheckIn]  = useState(defaultToday);
+  const [checkOut, setCheckOut] = useState(defaultTomorrow);
   const [rooms,    setRooms]    = useState("1");
   const [guests,   setGuests]   = useState("2");
 
@@ -41,7 +41,7 @@ const CheckAvailability = () => {
           </label>
           <div className="relative">
             <Calendar size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#cbb19d] pointer-events-none" />
-            <input type="date" value={checkIn} min={today}
+            <input type="date" value={checkIn} min={defaultToday}
               onChange={e => setCheckIn(e.target.value)}
               className={`w-full border rounded-xl pl-8 pr-2 py-2.5 text-sm outline-none transition-colors ${inp}`} />
           </div>

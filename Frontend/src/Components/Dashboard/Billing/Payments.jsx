@@ -101,7 +101,6 @@ const Payments = () => {
     const controller = new AbortController();
     fetchPayments(controller.signal);
     return () => controller.abort();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [role]);
 
   const totalPaid = useMemo(() => {

@@ -26,8 +26,6 @@ const AboutPage = () => {
   const bg = dark ? "bg-[#111111]" : "bg-white";
   const muted = dark ? "text-gray-400" : "text-gray-500";
   const text = dark ? "text-white" : "text-gray-900";
-  const card = dark ? "bg-[#1a1a1a] border-gray-800" : "bg-[#faf8f6] border-gray-100";
-
   return (
     <div className={`min-h-screen pt-24 pb-20 ${bg}`}>
       {/* Hero Section */}

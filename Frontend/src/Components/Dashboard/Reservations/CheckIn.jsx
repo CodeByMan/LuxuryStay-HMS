@@ -106,7 +106,6 @@ const CheckIn = () => {
   useEffect(() => {
     if (!canCheckInRole(role)) return;
     fetchEligibleReservations();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [role]);
 
   const eligibleForCheckIn = useMemo(() => {

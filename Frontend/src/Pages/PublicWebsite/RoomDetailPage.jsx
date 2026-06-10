@@ -222,9 +222,9 @@ const RoomDetailPage = () => {
                     [Users,    `${room.capacity} Guests`],
                     [BedDouble, `${room.bedNumber} ${room.bedType}`],
                     [Maximize2, `${room.roomSize}`],
-                  ].map(([Icon, val], i) => (
+                  ].map(([StatIcon, val], i) => (
                     <div key={i} className="text-center">
-                      <Icon size={20} className="text-[#cbb19d] mx-auto mb-1" />
+                      {React.createElement(StatIcon, { size: 20, className: "text-[#cbb19d] mx-auto mb-1" })}
                       <span className={`text-xs ${muted}`}>{val}</span>
                     </div>
                   ))}

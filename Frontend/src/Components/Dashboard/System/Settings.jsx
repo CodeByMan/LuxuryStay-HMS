@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 const Settings = () => {
   const [activeTab, setActiveTab] = useState("profile");
   const [loading, setLoading] = useState(false);
-  const [userData, setUserData] = useState(null);
+  const [, setUserData] = useState(null);
 
   const [profileData, setProfileData] = useState({
     name: "",
@@ -47,12 +47,6 @@ const Settings = () => {
     language: "English",
   });
 
-  useEffect(() => {
-    fetchUserProfile();
-    fetchNotificationSettings();
-    fetchHotelSettings();
-  }, []);
-
   const fetchUserProfile = () => {
     setTimeout(() => {
       const user = { name: "Admin User", email: "admin@luxurystay.com", phone: "+1 234 567 8900", address: "123 Hotel Way", department: "Management" };
@@ -77,6 +71,12 @@ const Settings = () => {
       });
     }, 500);
   };
+
+  useEffect(() => {
+    fetchUserProfile();
+    fetchNotificationSettings();
+    fetchHotelSettings();
+  }, []);
 
   const handleProfileSubmit = (e) => {
     e.preventDefault();

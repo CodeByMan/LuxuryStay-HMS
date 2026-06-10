@@ -113,6 +113,7 @@ const GuestFeedbackPage = () => {
   useEffect(() => {
     if (!user?._id) { navigate("/login"); return; }
     fetchFeedback();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchFeedback = async () => {

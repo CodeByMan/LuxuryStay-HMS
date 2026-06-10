@@ -191,6 +191,7 @@ const HousekeepingChecklist = () => {
 
   useEffect(() => {
     fetchChecklist();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHousekeeping]);
 
   const mappedTasks = useMemo(() => {

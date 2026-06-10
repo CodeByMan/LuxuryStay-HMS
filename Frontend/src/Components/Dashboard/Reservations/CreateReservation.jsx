@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { CalendarCheck, Users, BedDouble, Calendar, CreditCard, FileText, ArrowRight, CheckCircle, Search } from "lucide-react";
@@ -67,7 +67,7 @@ const CreateReservation = () => {
             guestPhone: data.guest.phone || "",
           }));
         }
-      } catch (err) {
+      } catch {
         setForm(prev => ({ ...prev, guestName: "", guestPhone: "" }));
       } finally {
         setGuestLoading(false);
@@ -101,7 +101,7 @@ const CreateReservation = () => {
         });
         const { data } = await api.get(`/reservation/preview?${query.toString()}`);
         setPreview(data);
-      } catch (err) {
+      } catch {
         setPreview(null);
       } finally {
         setPreviewLoading(false);

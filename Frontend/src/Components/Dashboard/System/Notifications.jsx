@@ -21,19 +21,16 @@ const Notifications = () => {
   const [selectedFilter, setSelectedFilter] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [notifications, setNotifications] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchNotifications();
-  }, []);
-
-  const fetchNotifications = () => {
-    setLoading(true);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setNotifications([...dummyNotifications]);
       setLoading(false);
     }, 500);
-  };
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const getTypeConfig = (type) => {
     switch (type) {
